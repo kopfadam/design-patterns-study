@@ -1,5 +1,8 @@
 package com.company.builder;
 
+import com.company.builder.second.CarBuilder;
+import com.company.builder.second.ProductClass;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -19,11 +22,31 @@ public class Main {
         /***************************************/
 
         /*** Second implementation ***/
+        ProductClass customCar1 = new CarBuilder()
+                .addHeadlights(5)
+                .buildBody("Plastic")
+                .insertWheels(4)
+                .constructCar();
 
+        System.out.println(customCar1);
+        System.out.println("----------------------");
+
+        CarBuilder carBuilder2 = new CarBuilder();
+        ProductClass customCar2 = carBuilder2
+                .startUpOperations("This is custom car 2")
+                .addHeadlights(3)
+                .buildBody("Copper")
+                .insertWheels(2)
+                .endOperations("Custom car 2 is finished")
+                .constructCar();
+
+        System.out.println(customCar2);
+        System.out.println("----------------------");
+
+        // verifying the constructedCar() method final
+        ProductClass customCar3 = carBuilder2.getConstructedCar();
+        System.out.println(customCar3);
         /****************************************/
 
-        for (int i = 10; i > 0; i = (i / 2)) {
-            System.out.println(i);
-        }
     }
 }

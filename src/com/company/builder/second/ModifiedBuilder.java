@@ -1,4 +1,4 @@
-package com.company.builder;
+package com.company.builder.second;
 
 public interface ModifiedBuilder {
     ModifiedBuilder startUpOperations(String message);
